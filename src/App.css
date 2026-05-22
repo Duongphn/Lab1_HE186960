@@ -1,0 +1,232 @@
+.app {
+  --page-bg: #eef4ff;
+  --card-bg: #ffffff;
+  --text: #172033;
+  --muted: #697386;
+  --border: #d9e2f2;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-soft: #e8f0ff;
+  --success: #0f9f6e;
+  --danger: #d14343;
+  --shadow: 0 22px 55px rgba(37, 99, 235, 0.16);
+
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 34rem),
+    var(--page-bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.app.dark {
+  --page-bg: #111827;
+  --card-bg: #1f2937;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --border: #334155;
+  --accent: #60a5fa;
+  --accent-strong: #93c5fd;
+  --accent-soft: rgba(96, 165, 250, 0.12);
+  --success: #34d399;
+  --danger: #f87171;
+  --shadow: 0 22px 55px rgba(0, 0, 0, 0.35);
+}
+
+.profile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  max-width: 28rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease;
+  width: min(100%, 28rem);
+}
+
+.profile-card:hover {
+  box-shadow: 0 28px 70px rgba(37, 99, 235, 0.22);
+  transform: translateY(-0.35rem);
+}
+
+.dark .profile-card:hover {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  background: var(--accent-soft);
+  border: 0.35rem solid var(--accent-soft);
+  border-radius: 50%;
+  display: block;
+  height: 8.75rem;
+  margin: 0 auto 1rem;
+  object-fit: cover;
+  width: 8.75rem;
+}
+
+.student-summary h1 {
+  color: var(--text);
+  font-size: clamp(1.8rem, 8vw, 2.35rem);
+  line-height: 1.1;
+  margin: 0.45rem 0;
+}
+
+.student-id,
+.info-grid p,
+.hobbies li {
+  color: var(--muted);
+}
+
+.status {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+}
+
+.status.online {
+  background: rgba(15, 159, 110, 0.12);
+  color: var(--success);
+}
+
+.status.offline {
+  background: rgba(209, 67, 67, 0.12);
+  color: var(--danger);
+}
+
+.info-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.5rem 0;
+}
+
+.info-grid article {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.info-grid h2,
+.hobbies h2 {
+  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  margin: 0 0 0.35rem;
+}
+
+.info-grid p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.hobbies {
+  text-align: left;
+}
+
+.hobbies ul {
+  display: grid;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+}
+
+.hobbies li {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  display: flex;
+  gap: 0.55rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.hobbies li::before {
+  background: var(--accent);
+  border-radius: 50%;
+  content: '';
+  flex: 0 0 0.45rem;
+  height: 0.45rem;
+  width: 0.45rem;
+}
+
+.actions {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+button {
+  background: var(--accent);
+  border: 0;
+  border-radius: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-height: 2.85rem;
+  padding: 0.75rem 1rem;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-strong);
+  transform: translateY(-0.12rem);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+.theme-button {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  min-height: 2.4rem;
+  padding: 0.55rem 0.8rem;
+}
+
+.theme-button:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+@media (max-width: 36rem) {
+  .app {
+    padding: 1rem;
+  }
+
+  .profile-card {
+    border-radius: 1rem;
+    padding: 1.1rem;
+  }
+
+  .info-grid,
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
